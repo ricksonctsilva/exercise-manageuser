@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:
+  app:
+    image: gse-backend:latest
+    build: 
+      dockerfile: Dockerfile
+      context: .
+    container_name: gse-backend
+    ports:
+      - ${PORT_BACKEND}:${PORT_BACKEND}
+    restart: always
+    env_file: .env

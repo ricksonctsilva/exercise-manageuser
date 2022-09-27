@@ -1,0 +1,15 @@
+datasource db {
+  provider = "sqlserver"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native"]
+}
+
+model Example {
+  id                  String              @id @unique
+  createdAt           DateTime            @db.DateTime2 @default(now())
+  updatedAt           DateTime?           @db.DateTimeOffset
+}
